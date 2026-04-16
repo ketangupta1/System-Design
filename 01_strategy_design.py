@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-# ---------- Behavior Interfaces ----------
+# ---------- Behavior(Strategy) Interfaces ----------
 
 class Walkable(ABC):
     @abstractmethod
@@ -20,7 +20,7 @@ class Talkable(ABC):
     def talk(self):
         pass
 
-
+# ---------- Concrete Behaviors(Strategies) ----------
 # ---------- Walk Behaviors ----------
 
 class NormalWalk(Walkable):
@@ -57,7 +57,7 @@ class NoTalk(Talkable):
         print("No talking.")
 
 
-# ---------- Robot Abstract Class ----------
+# ---------- Robot Abstract Class(Client) ----------
 
 class Robot(ABC):
     def __init__(
@@ -80,7 +80,7 @@ class Robot(ABC):
         self.walk_behavior.walk()
 
     @abstractmethod
-    def projection(self):
+    def projection(self):  # We can create strategy for this method as well.
         pass
 
 
